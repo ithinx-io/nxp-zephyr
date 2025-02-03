@@ -10,6 +10,8 @@ set(blob_gen_file         ${ZEPHYR_BINARY_DIR}/include/generated/bt_nxp_ctlr_fw.
 
 if(CONFIG_BT_NXP_NW612)
     set(blob_file ${hal_nxp_blobs_dir}/iw612/uart_nw61x_se.h)
+elseif(CONFIG_BT_NXP_IW416)
+    set(blob_file ${hal_nxp_blobs_dir}/iw416/uartIW416_bt.h)
 endif()
 
 if (NOT DEFINED blob_file)

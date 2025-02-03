@@ -1,0 +1,38 @@
+/*
+ * Copyright 2024 NXP
+ *
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+m2_hci_uart: &lpuart3 {                                      // (MIMXRT1170EVKB: lpuart2, no sleep requirement)
+	pinctrl-0 = <&pinmux_lpuart3>;
+	pinctrl-1 = <&pinmux_lpuart3_flow_control>;
+	pinctrl-2 = <&pinmux_lpuart3_sleep>;
+	pinctrl-names = "default", "flowcontrol", "sleep";
+	current-speed = <115200>;
+	status = "okay";
+
+	bt_hci_uart: bt_hci_uart {
+		compatible = "zephyr,bt-hci-uart";
+
+		m2_bt_module {
+			compatible = "nxp,bt-hci-uart";
+			sdio-reset-gpios = <&gpio1 24 GPIO_ACTIVE_HIGH>;  // WIFI_RST_B von GPIO_AD_B1_08 (MIMXRT1170EVKB: GPIO_AD_16/gpio9_io15)
+			w-disable-gpios = <&gpio1 19 GPIO_ACTIVE_HIGH>;   // WL_RST     von GPIO_AD_B1_03 (MIMXRT1170EVKB: GPIO_AD_31/gpio9_io30)
+			hci-default-speed = <115200>;
+			hci-operation-speed = <3000000>;
+			hw-flow-control;
+			fw-download-primary-speed = <115200>;
+			fw-download-secondary-speed = <3000000>;
+			fw-download-secondary-flowcontrol;
+		};
+	};
+};
+
+
+/ {
+	chosen {
+		zephyr,sram = &dtcm;
+		zephyr,bt-hci = &bt_hci_uart;
+	};
+};
