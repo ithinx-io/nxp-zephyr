@@ -198,9 +198,9 @@ manifest:
       groups:
         - hal
     - name: hal_nxp
-      revision: c15dd51d7af27593e38b65b1443a350e9d2de64f
+      revision: Add_Blob_IW416_itx
       path: modules/hal/nxp
-      url: https://github.com/nxp-upstream/hal_nxp.git
+      url: https://github.com/ithinx-io/hal_nxp.git
       groups:
         - hal
     - name: hal_openisa
