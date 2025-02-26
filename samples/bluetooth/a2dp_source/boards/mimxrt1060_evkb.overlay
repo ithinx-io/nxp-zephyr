@@ -20,11 +20,11 @@ m2_hci_uart: &lpuart3 {                                      // (MIMXRT1170EVKB:
 			sdio-reset-gpios = <&gpio1 24 GPIO_ACTIVE_HIGH>;  // WIFI_RST_B von GPIO_AD_B1_08 (MIMXRT1170EVKB: GPIO_AD_16/gpio9_io15)
 			w-disable-gpios = <&gpio1 19 GPIO_ACTIVE_HIGH>;   // WL_RST     von GPIO_AD_B1_03 (MIMXRT1170EVKB: GPIO_AD_31/gpio9_io30)
 			hci-default-speed = <115200>;
-			hci-operation-speed = <3000000>;
+			hci-operation-speed = <1000000>;
 			hw-flow-control;
 			fw-download-primary-speed = <115200>;
-			fw-download-secondary-speed = <3000000>;
-			fw-download-secondary-flowcontrol;
+			fw-download-secondary-speed = <1000000>;
+			//fw-download-secondary-flowcontrol;
 		};
 	};
 };

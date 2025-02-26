@@ -4,6 +4,22 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
+/*
+ * change baud rates for  fw download and HCI operation
+ * valid baud rates for secondary speed (check clk_div_map in nxp-zephyr/drivers/bluetooth/hci/hci_nxp_setup.c):
+ * - 115200
+ * - 1000000
+ * - 3000000 (default)
+ */
+&m2_hci_uart {
+	bt_hci_uart {
+		m2_bt_module {
+			hci-operation-speed = <1000000>;
+			fw-download-secondary-speed = <1000000>;
+		};
+	};
+};
+
 / {
 	chosen {
 		zephyr,sram = &dtcm;

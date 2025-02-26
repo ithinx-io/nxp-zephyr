@@ -20,10 +20,10 @@ m2_hci_uart: &lpuart3 {
 			sdio-reset-gpios = <&gpio1 24 GPIO_ACTIVE_HIGH>;  // WIFI_RST_B von GPIO_AD_B1_08
 			w-disable-gpios = <&gpio1 01 GPIO_ACTIVE_HIGH>;   // BT_WAKE_B von GPIO_AD_B0_01
 			hci-default-speed = <115200>;
-			hci-operation-speed = <3000000>;
+			hci-operation-speed = <1000000>;
 			hw-flow-control;
 			fw-download-primary-speed = <115200>;
-			fw-download-secondary-speed = <3000000>;
+			fw-download-secondary-speed = <1000000>;
 			fw-download-secondary-flowcontrol;
 		};
 	};
